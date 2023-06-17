@@ -259,7 +259,7 @@ class ModelImporter(BaseModelImporter):
     def import_version(self, model_name, src_vr, dst_run_id, sleep_time):
         dst_run = self.mlflow_client.get_run(dst_run_id)
         model_path = _extract_model_path(src_vr["source"], src_vr["run_id"])
-        dst_source = f"{dst_run.info.artifact_uri}/{model_path}"
+        dst_source = f"{dst_run.info.artifact_uri}/{model_name}"
         self._import_version(model_name, src_vr, dst_run_id, dst_source, sleep_time)
 
 
